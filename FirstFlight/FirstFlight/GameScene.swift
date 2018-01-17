@@ -11,7 +11,17 @@ import GameplayKit
 
 class GameScene: SKScene {
     
+    let spriteSize = CGSize(width: 200, height: 20)
+    var scrollView: SwiftySKScrollView?
+    let scrollViewAdjuster: CGFloat = 2
+    let moveableNode = SKNode()
+
     override func didMove(to view: SKView) {
-        self.backgroundColor = SKColor.white
+        
+   
+        addChild(moveableNode)
+        prepareVerticalScrolling()
+        //prepareHorizontalScrolling()
     }
+
 }

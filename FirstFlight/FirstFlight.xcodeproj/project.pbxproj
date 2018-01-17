@@ -13,6 +13,10 @@
 		93560A1B200E506A00D446D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93560A19200E506A00D446D3 /* Main.storyboard */; };
 		93560A1D200E506A00D446D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93560A1C200E506A00D446D3 /* Assets.xcassets */; };
 		93560A20200E506A00D446D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93560A1E200E506A00D446D3 /* LaunchScreen.storyboard */; };
+		93560A28200E545800D446D3 /* ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93560A27200E545800D446D3 /* ScrollView.swift */; };
+		93CFCD2B200F4EF000FA1D71 /* banana.png in Resources */ = {isa = PBXBuildFile; fileRef = 93CFCD2A200F4EF000FA1D71 /* banana.png */; };
+		93CFCD2D200F568600FA1D71 /* PrepareVerticalScrolling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CFCD2C200F568600FA1D71 /* PrepareVerticalScrolling.swift */; };
+		93CFCD30200F56F800FA1D71 /* PrepareHorizontalScrolling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CFCD2F200F56F800FA1D71 /* PrepareHorizontalScrolling.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		93560A1C200E506A00D446D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		93560A1F200E506A00D446D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		93560A21200E506A00D446D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93560A27200E545800D446D3 /* ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollView.swift; sourceTree = "<group>"; };
+		93CFCD2A200F4EF000FA1D71 /* banana.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = banana.png; sourceTree = "<group>"; };
+		93CFCD2C200F568600FA1D71 /* PrepareVerticalScrolling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepareVerticalScrolling.swift; sourceTree = "<group>"; };
+		93CFCD2F200F56F800FA1D71 /* PrepareHorizontalScrolling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepareHorizontalScrolling.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +66,25 @@
 			children = (
 				93560A0F200E506A00D446D3 /* AppDelegate.swift */,
 				93560A15200E506A00D446D3 /* GameScene.swift */,
+				93CFCD2E200F569300FA1D71 /* ScrollView */,
 				93560A17200E506A00D446D3 /* GameViewController.swift */,
 				93560A19200E506A00D446D3 /* Main.storyboard */,
 				93560A1C200E506A00D446D3 /* Assets.xcassets */,
+				93CFCD2A200F4EF000FA1D71 /* banana.png */,
 				93560A1E200E506A00D446D3 /* LaunchScreen.storyboard */,
 				93560A21200E506A00D446D3 /* Info.plist */,
 			);
 			path = FirstFlight;
+			sourceTree = "<group>";
+		};
+		93CFCD2E200F569300FA1D71 /* ScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				93560A27200E545800D446D3 /* ScrollView.swift */,
+				93CFCD2C200F568600FA1D71 /* PrepareVerticalScrolling.swift */,
+				93CFCD2F200F56F800FA1D71 /* PrepareHorizontalScrolling.swift */,
+			);
+			path = ScrollView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,6 +148,7 @@
 			files = (
 				93560A1B200E506A00D446D3 /* Main.storyboard in Resources */,
 				93560A1D200E506A00D446D3 /* Assets.xcassets in Resources */,
+				93CFCD2B200F4EF000FA1D71 /* banana.png in Resources */,
 				93560A20200E506A00D446D3 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,7 +160,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93CFCD30200F56F800FA1D71 /* PrepareHorizontalScrolling.swift in Sources */,
 				93560A16200E506A00D446D3 /* GameScene.swift in Sources */,
+				93CFCD2D200F568600FA1D71 /* PrepareVerticalScrolling.swift in Sources */,
+				93560A28200E545800D446D3 /* ScrollView.swift in Sources */,
 				93560A18200E506A00D446D3 /* GameViewController.swift in Sources */,
 				93560A10200E506A00D446D3 /* AppDelegate.swift in Sources */,
 			);
