@@ -4,31 +4,24 @@ import SpriteKit
 
 public class SwiftySKScrollView: UIScrollView {
     
-    // MARK: - Properties
-    
-    /// SwiftySKScrollView direction
     public enum ScrollDirection {
         case vertical
         case horizontal
     }
     
-    /// SwiftySKScrollView direction
     public enum ScrollIndicatorPosition {
         case top
         case bottom
     }
-    
-    /// Disable status
+
     public var isDisabled = false {
         didSet {
             isUserInteractionEnabled = !isDisabled
         }
     }
     
-    /// Moveable node
     private let moveableNode: SKNode
     
-    /// Scroll direction
     private let direction: ScrollDirection
     
     /// Scroll indicator position

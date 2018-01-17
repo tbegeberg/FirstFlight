@@ -17,6 +17,7 @@
 		93CFCD2B200F4EF000FA1D71 /* banana.png in Resources */ = {isa = PBXBuildFile; fileRef = 93CFCD2A200F4EF000FA1D71 /* banana.png */; };
 		93CFCD2D200F568600FA1D71 /* PrepareVerticalScrolling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CFCD2C200F568600FA1D71 /* PrepareVerticalScrolling.swift */; };
 		93CFCD30200F56F800FA1D71 /* PrepareHorizontalScrolling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CFCD2F200F56F800FA1D71 /* PrepareHorizontalScrolling.swift */; };
+		93CFCD32200F9A0A00FA1D71 /* BananaSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CFCD31200F9A0A00FA1D71 /* BananaSprite.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		93CFCD2A200F4EF000FA1D71 /* banana.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = banana.png; sourceTree = "<group>"; };
 		93CFCD2C200F568600FA1D71 /* PrepareVerticalScrolling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepareVerticalScrolling.swift; sourceTree = "<group>"; };
 		93CFCD2F200F56F800FA1D71 /* PrepareHorizontalScrolling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepareHorizontalScrolling.swift; sourceTree = "<group>"; };
+		93CFCD31200F9A0A00FA1D71 /* BananaSprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaSprite.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 			children = (
 				93560A0F200E506A00D446D3 /* AppDelegate.swift */,
 				93560A15200E506A00D446D3 /* GameScene.swift */,
+				93CFCD33200F9A8500FA1D71 /* Sprites */,
 				93CFCD2E200F569300FA1D71 /* ScrollView */,
 				93560A17200E506A00D446D3 /* GameViewController.swift */,
 				93560A19200E506A00D446D3 /* Main.storyboard */,
@@ -85,6 +88,14 @@
 				93CFCD2F200F56F800FA1D71 /* PrepareHorizontalScrolling.swift */,
 			);
 			path = ScrollView;
+			sourceTree = "<group>";
+		};
+		93CFCD33200F9A8500FA1D71 /* Sprites */ = {
+			isa = PBXGroup;
+			children = (
+				93CFCD31200F9A0A00FA1D71 /* BananaSprite.swift */,
+			);
+			path = Sprites;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,6 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93CFCD30200F56F800FA1D71 /* PrepareHorizontalScrolling.swift in Sources */,
+				93CFCD32200F9A0A00FA1D71 /* BananaSprite.swift in Sources */,
 				93560A16200E506A00D446D3 /* GameScene.swift in Sources */,
 				93CFCD2D200F568600FA1D71 /* PrepareVerticalScrolling.swift in Sources */,
 				93560A28200E545800D446D3 /* ScrollView.swift in Sources */,
