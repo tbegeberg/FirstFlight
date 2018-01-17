@@ -15,7 +15,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var scrollView: SwiftySKScrollView?
     let scrollViewAdjuster: CGFloat = 2
     let moveableNode = SKNode()
-    
+    var cameraNode: SKCameraNode?
+    var banana: SKSpriteNode?
 
     override func didMove(to view: SKView) {
         
@@ -27,11 +28,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(moveableNode)
         prepareVerticalScrolling()
         
-        let banana = BananaSprite.banana(location: CGPoint(x: self.frame.midX, y: self.frame.maxY))
-        self.addChild(banana)
+        banana = BananaSprite.banana(location: CGPoint(x: self.frame.midX, y: self.frame.maxY))
+        if let newSprite = banana{
+            self.addChild(newSprite)
+        }
         
+        cameraNode = SKCameraNode()
+        if let camera = cameraNode {
+            self.addChild(camera)
+        }
+        self.camera = cameraNode
         
         //prepareHorizontalScrolling()
     }
+    
+    override func update(_ currentTime: TimeInterval) {
+        super.update(currentTime)
+        if let camera = cameraNode, let pl = banana {
+            camera.position = pl.position
+        }
+    }
+    
 
 }
