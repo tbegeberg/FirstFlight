@@ -12,8 +12,9 @@ import GameplayKit
 struct PhysicsCategory {
     static let None      : UInt32 = 0
     static let All       : UInt32 = UInt32.max
-    static let Banana    : UInt32 = 0b1       // 1
-    static let Platform  : UInt32 = 0b10      // 2
+    static let Banana    : UInt32 = 1       // 1
+    static let Platform  : UInt32 = 2     // 2
+    static let Wall: UInt32 = 3
 }
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
@@ -30,16 +31,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: self.frame)
         self.physicsWorld.gravity = CGVector(dx: 0, dy: -1)
         self.physicsWorld.contactDelegate = self
-        
+        self.physicsBody?.categoryBitMask = PhysicsCategory.Wall
+        banana = BananaSprite.banana(location: CGPoint(x: self.frame.midX, y: self.frame.maxY))
+        if let newSprite = banana{
+            moveableNode.addChild(newSprite)
+        }
+       
         
         self.addChild(moveableNode)
         prepareVerticalScrolling()
         
-        banana = BananaSprite.banana(location: CGPoint(x: self.frame.midX, y: self.frame.maxY))
-        if let newSprite = banana{
-            self.addChild(newSprite)
-        }
         
+ 
         cameraNode = SKCameraNode()
         if let camera = cameraNode {
             self.addChild(camera)

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9332B7B220123D54000CD010 /* platform.png in Resources */ = {isa = PBXBuildFile; fileRef = 9332B7B120123D54000CD010 /* platform.png */; };
 		93560A10200E506A00D446D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93560A0F200E506A00D446D3 /* AppDelegate.swift */; };
 		93560A16200E506A00D446D3 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93560A15200E506A00D446D3 /* GameScene.swift */; };
 		93560A18200E506A00D446D3 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93560A17200E506A00D446D3 /* GameViewController.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9332B7B120123D54000CD010 /* platform.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = platform.png; sourceTree = "<group>"; };
 		93560A0C200E506A00D446D3 /* FirstFlight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirstFlight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93560A0F200E506A00D446D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93560A15200E506A00D446D3 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				93560A19200E506A00D446D3 /* Main.storyboard */,
 				93560A1C200E506A00D446D3 /* Assets.xcassets */,
 				93CFCD2A200F4EF000FA1D71 /* banana.png */,
+				9332B7B120123D54000CD010 /* platform.png */,
 				93560A1E200E506A00D446D3 /* LaunchScreen.storyboard */,
 				93560A21200E506A00D446D3 /* Info.plist */,
 			);
@@ -162,6 +165,7 @@
 			files = (
 				93560A1B200E506A00D446D3 /* Main.storyboard in Resources */,
 				93560A1D200E506A00D446D3 /* Assets.xcassets in Resources */,
+				9332B7B220123D54000CD010 /* platform.png in Resources */,
 				93CFCD2B200F4EF000FA1D71 /* banana.png in Resources */,
 				93560A20200E506A00D446D3 /* LaunchScreen.storyboard in Resources */,
 			);

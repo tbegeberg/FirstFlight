@@ -9,18 +9,18 @@
 import SpriteKit
 
 class PlatformSprite: SKSpriteNode {
-    class func platform(location: CGPoint, color: UIColor, size: CGSize) -> PlatformSprite {
-        let sprite = PlatformSprite(color: color, size: size)
+    class func platform(location: CGPoint) -> PlatformSprite {
+        let sprite = PlatformSprite(imageNamed: "platform.png")
         
         sprite.position = location
 
-        sprite.physicsBody = SKPhysicsBody(rectangleOf: sprite.size)
+        sprite.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: "platform.png"), size: sprite.size)
         if let physics = sprite.physicsBody {
             physics.affectedByGravity = false
-
+            
             physics.categoryBitMask = PhysicsCategory.Platform
             physics.contactTestBitMask = PhysicsCategory.Banana
-            physics.collisionBitMask = PhysicsCategory.None
+            //physics.collisionBitMask = PhysicsCategory.Banana
             
         }
         return sprite

@@ -39,9 +39,7 @@ extension GameScene {
         page3ScrollView.zPosition = -1
         page3ScrollView.position = CGPoint(x: frame.midX, y: frame.midY)
         moveableNode.addChild(page3ScrollView)
-        
-        let sprite1Page11 = PlatformSprite.platform(location: CGPoint(x: page1ScrollView.position.x + 50, y: page1ScrollView.position.y + 50), color: .red, size: spriteSize)
-        page1ScrollView.addChild(sprite1Page11)
+  
         
         /*let sprite1Page1 = SKSpriteNode(color: .red, size: spriteSize)
         sprite1Page1.position = CGPoint(x: page1ScrollView.position.x + 50, y: page1ScrollView.position.y + 50)
