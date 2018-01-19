@@ -9,6 +9,13 @@
 import SpriteKit
 import GameplayKit
 
+struct PhysicsCategory {
+    static let None      : UInt32 = 0
+    static let All       : UInt32 = UInt32.max
+    static let Banana    : UInt32 = 0b1       // 1
+    static let Platform  : UInt32 = 0b10      // 2
+}
+
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     let spriteSize = CGSize(width: 200, height: 20)
@@ -20,7 +27,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     override func didMove(to view: SKView) {
         
-        //self.physicsBody = SKPhysicsBody(edgeLoopFrom: self.frame)
+        self.physicsBody = SKPhysicsBody(edgeLoopFrom: self.frame)
         self.physicsWorld.gravity = CGVector(dx: 0, dy: -1)
         self.physicsWorld.contactDelegate = self
         
@@ -39,13 +46,35 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         self.camera = cameraNode
         
-        //prepareHorizontalScrolling()
+    }
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+        
+        var firstBody: SKPhysicsBody
+        var secondBody: SKPhysicsBody
+        if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
+            firstBody = contact.bodyA
+            secondBody = contact.bodyB
+        } else {
+            firstBody = contact.bodyB
+            secondBody = contact.bodyA
+        }
+        
+        if ((firstBody.categoryBitMask & PhysicsCategory.Banana != 0) &&
+            (secondBody.categoryBitMask & PhysicsCategory.Platform != 0)) {
+            if let banana = firstBody.node as? SKSpriteNode, let
+                platform = secondBody.node as? SKSpriteNode {
+                print("hit")
+                
+                //projectileDidCollideWithMonster(projectile: projectile, monster: monster)
+            }
+        }
     }
     
     override func update(_ currentTime: TimeInterval) {
         super.update(currentTime)
-        if let camera = cameraNode, let pl = banana {
-            camera.position = pl.position
+        if let camera = cameraNode, let banana = banana {
+            camera.position = banana.position
         }
     }
     
