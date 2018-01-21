@@ -16,14 +16,14 @@ class BananaSprite: SKSpriteNode {
         sprite.xScale = 0.3
         sprite.yScale = 0.3
         sprite.position = location
+        sprite.name = "banana"
         
         sprite.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: "banana.png"), size: sprite.size)
         if let physics = sprite.physicsBody {
             physics.affectedByGravity = true
-            physics.allowsRotation = true
+            physics.allowsRotation = false
             physics.isDynamic = true
-            physics.linearDamping = 0.75
-            physics.angularDamping = 0.75
+
             physics.categoryBitMask = PhysicsCategory.Banana
             physics.contactTestBitMask = PhysicsCategory.Platform
             physics.collisionBitMask = PhysicsCategory.None

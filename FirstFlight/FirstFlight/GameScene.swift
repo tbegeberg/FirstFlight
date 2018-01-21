@@ -29,56 +29,47 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: self.frame)
-        self.physicsWorld.gravity = CGVector(dx: 0, dy: -1)
+        self.physicsWorld.gravity = CGVector(dx: 0, dy: -0.1)
         self.physicsWorld.contactDelegate = self
         self.physicsBody?.categoryBitMask = PhysicsCategory.Wall
         banana = BananaSprite.banana(location: CGPoint(x: self.frame.midX, y: self.frame.maxY))
         if let newSprite = banana{
             moveableNode.addChild(newSprite)
         }
-       
-        
+
         self.addChild(moveableNode)
         prepareVerticalScrolling()
-        
-        
- 
+
         cameraNode = SKCameraNode()
         if let camera = cameraNode {
             self.addChild(camera)
         }
         self.camera = cameraNode
-        
     }
-    
-    func didBegin(_ contact: SKPhysicsContact) {
-        
-        var firstBody: SKPhysicsBody
-        var secondBody: SKPhysicsBody
-        if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
-            firstBody = contact.bodyA
-            secondBody = contact.bodyB
-        } else {
-            firstBody = contact.bodyB
-            secondBody = contact.bodyA
-        }
-        
-        if ((firstBody.categoryBitMask & PhysicsCategory.Banana != 0) &&
-            (secondBody.categoryBitMask & PhysicsCategory.Platform != 0)) {
-            if let banana = firstBody.node as? SKSpriteNode, let
-                platform = secondBody.node as? SKSpriteNode {
-                print("hit")
-                
-                //projectileDidCollideWithMonster(projectile: projectile, monster: monster)
-            }
-        }
-    }
-    
+
     override func update(_ currentTime: TimeInterval) {
         super.update(currentTime)
         if let camera = cameraNode, let banana = banana {
             camera.position = banana.position
         }
+    }
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        guard let touch = touches.first else {
+            return
+        }
+        let touchLocation = touch.location(in: self)
+        print(touchLocation)
+        for banana in moveableNode.children {
+            if touchLocation.x > self.frame.midX {
+                banana.physicsBody?.applyImpulse(CGVector(dx: -1, dy: 0))
+            } else {
+                banana.physicsBody?.applyImpulse(CGVector(dx: +1, dy: 0))
+            }
+            
+            
+        }
+        
     }
     
 

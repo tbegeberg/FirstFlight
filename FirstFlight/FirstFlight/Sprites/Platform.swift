@@ -12,15 +12,18 @@ class PlatformSprite: SKSpriteNode {
     class func platform(location: CGPoint) -> PlatformSprite {
         let sprite = PlatformSprite(imageNamed: "platform.png")
         
+        sprite.xScale = 0.5
+        sprite.yScale = 0.5
         sprite.position = location
+        sprite.name = "platform"
 
         sprite.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: "platform.png"), size: sprite.size)
         if let physics = sprite.physicsBody {
             physics.affectedByGravity = false
-            
+            physics.allowsRotation = false
             physics.categoryBitMask = PhysicsCategory.Platform
             physics.contactTestBitMask = PhysicsCategory.Banana
-            //physics.collisionBitMask = PhysicsCategory.Banana
+            
             
         }
         return sprite
