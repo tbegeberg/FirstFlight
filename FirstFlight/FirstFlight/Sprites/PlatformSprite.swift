@@ -24,10 +24,7 @@ class PlatformSprite: SKSpriteNode {
             physics.categoryBitMask = PhysicsCategory.Platform
             physics.contactTestBitMask = PhysicsCategory.Banana
             
-            
         }
         return sprite
-        
     }
-    
 }
