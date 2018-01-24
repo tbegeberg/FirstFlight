@@ -21,13 +21,9 @@ struct PhysicsCategory {
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     let spriteSize = CGSize(width: 200, height: 20)
-    var scrollView: SwiftySKScrollView?
-    let scrollViewAdjuster: CGFloat = 2
-    let moveableNode = SKNode()
     var cameraNode: SKCameraNode?
     var banana: SKSpriteNode?
     
-
     override func didMove(to view: SKView) {
         
         self.backgroundColor = SKColor.white
@@ -48,7 +44,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             return
         }
         self.addChild(camera)
-        self.camera = cameraNode
+        self.camera = camera
         
         let zeroRange = SKRange(constantValue: 0.0)
         let bananaLocationConstraint = SKConstraint.distance(zeroRange, to: bananaSprite)
@@ -68,11 +64,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let grassBottom = GrassSprite.grass(location: CGPoint(x: self.frame.midX, y: self.frame.minY))
         grassBottom.size.width = self.size.width
         self.addChild(grassBottom)
-        
-        //self.addChild(moveableNode)
-        //prepareVerticalScrolling()
 
-        
     }
 
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
