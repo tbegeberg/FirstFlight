@@ -33,16 +33,7 @@ extension GameScene {
         page3ScrollView.position = CGPoint(x: frame.midX, y: frame.midY - (scrollView.frame.height * 2))
         moveableNode.addChild(page3ScrollView)*/
         
-        let platform1Page1 = PlatformSprite.platform(location: CGPoint(x: page1ScrollView.frame.midX, y: page1ScrollView.frame.minY))
-        page1ScrollView.addChild(platform1Page1)
-        
-        
-        let platform1Page2 = PlatformSprite.platform(location: CGPoint(x: page2ScrollView.frame.midY, y: page2ScrollView.frame.midY))
-        page2ScrollView.addChild(platform1Page2)
-        
-        let grassBottom = GrassSprite.grass(location: CGPoint(x: page2ScrollView.frame.midX, y: page2ScrollView.frame.minY))
-        grassBottom.size.width = self.frame.width * 2
-        page2ScrollView.addChild(grassBottom)
+       
      
     }
 }

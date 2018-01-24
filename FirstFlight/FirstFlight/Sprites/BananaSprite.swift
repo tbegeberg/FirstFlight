@@ -27,7 +27,7 @@ class BananaSprite: SKSpriteNode {
             physics.categoryBitMask = PhysicsCategory.Banana
             physics.contactTestBitMask = PhysicsCategory.Platform
             physics.contactTestBitMask = PhysicsCategory.Grass
-            physics.collisionBitMask = PhysicsCategory.None
+            physics.collisionBitMask = PhysicsCategory.Wall
         }
         return sprite
         
