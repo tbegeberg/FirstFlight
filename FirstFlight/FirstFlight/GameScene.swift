@@ -33,7 +33,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.contactDelegate = self
         self.physicsBody?.categoryBitMask = PhysicsCategory.Wall
         
-        banana = BananaSprite.banana(location: CGPoint(x: self.frame.midX, y: self.frame.midY))
+        banana = BananaSprite.banana(location: CGPoint(x: self.frame.midX, y: self.frame.maxY - 100))
         guard let bananaSprite = banana else {
             return
         }
@@ -49,8 +49,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let zeroRange = SKRange(constantValue: 0.0)
         let bananaLocationConstraint = SKConstraint.distance(zeroRange, to: bananaSprite)
         
-        let xRange = SKRange(lowerLimit: self.frame.minX, upperLimit: self.frame.maxX)
-        let yRange = SKRange(lowerLimit: self.frame.minY + self.frame.maxY/6, upperLimit: self.frame.maxY)
+        let xRange = SKRange(lowerLimit: self.frame.midX, upperLimit: self.frame.midX)
+        let yRange = SKRange(lowerLimit: self.frame.minY + 300, upperLimit: self.frame.maxY - 400)
         let levelEdgeConstraint = SKConstraint.positionX(xRange, y: yRange)
     
         camera.constraints = [bananaLocationConstraint, levelEdgeConstraint]
@@ -58,11 +58,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let platform1Page1 = PlatformSprite.platform(location: CGPoint(x: self.frame.midX, y: self.frame.minY + 200))
         self.addChild(platform1Page1)
         
-        let platform1Page2 = PlatformSprite.platform(location: CGPoint(x: self.frame.midX, y: self.frame.midY - 250))
+        let platform1Page2 = PlatformSprite.platform(location: CGPoint(x: self.frame.midX, y: self.frame.midY))
         self.addChild(platform1Page2)
         
         let grassBottom = GrassSprite.grass(location: CGPoint(x: self.frame.midX, y: self.frame.minY))
-        grassBottom.size.width = self.size.width
+        grassBottom.size.width = self.frame.width
         self.addChild(grassBottom)
 
     }
@@ -75,10 +75,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let touchLocation = touch.location(in: self)
         print(touchLocation)
         for banana in self.children {
-            if touchLocation.x > self.frame.midX {
-                banana.physicsBody?.applyImpulse(CGVector(dx: -1, dy: 0))
+            if touchLocation.x > banana.position.x {
+                banana.physicsBody?.applyImpulse(CGVector(dx: -2, dy: 0))
             } else {
-                banana.physicsBody?.applyImpulse(CGVector(dx: +1, dy: 0))
+                banana.physicsBody?.applyImpulse(CGVector(dx: 2, dy: 0))
             }
         }
     }
@@ -95,13 +95,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             secondBody = contact.bodyA
         }
         
-        if ((firstBody.categoryBitMask & PhysicsCategory.Banana != 0) &&
-            (secondBody.categoryBitMask == PhysicsCategory.Grass)) {
+        if (((firstBody.categoryBitMask & PhysicsCategory.Banana != 0) &&
+            (secondBody.categoryBitMask == PhysicsCategory.Grass)) || ((firstBody.categoryBitMask & PhysicsCategory.Banana != 0) && (secondBody.categoryBitMask == PhysicsCategory.Platform)))   {
             if let banana = firstBody.node as? SKSpriteNode {
                 banana.removeFromParent()
-                
             }
         }
+        
+        
     }
     
     

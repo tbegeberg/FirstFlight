@@ -20,6 +20,7 @@ class GrassSprite: SKSpriteNode {
         if let physics = sprite.physicsBody {
             physics.affectedByGravity = false
             physics.allowsRotation = false
+            physics.isDynamic = false
             physics.categoryBitMask = PhysicsCategory.Grass
             physics.contactTestBitMask = PhysicsCategory.Banana
             
